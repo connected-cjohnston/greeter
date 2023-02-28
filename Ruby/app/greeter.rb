@@ -1,6 +1,6 @@
 class Greeter
 
   def greet(name)
-    "Hello #{name}"
+    "Hello #{name.strip}"
   end
 end

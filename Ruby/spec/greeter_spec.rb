@@ -29,4 +29,9 @@ RSpec.describe Greeter do
     greeter = Greeter.new
     expect(greeter.greet('Sue')).to eq('Hello Sue')
   end
+
+  it 'should trim the input' do
+    greeter = Greeter.new
+    expect(greeter.greet('    Frodo    ')).to eq('Hello Frodo')
+  end
 end
