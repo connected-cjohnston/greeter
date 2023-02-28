@@ -1,6 +1,6 @@
 class Greeter
 
   def greet(name)
-    'Hello Bob'
+    "Hello #{name}"
   end
 end

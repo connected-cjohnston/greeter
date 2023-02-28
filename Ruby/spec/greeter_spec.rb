@@ -24,4 +24,9 @@ RSpec.describe Greeter do
     greeter = Greeter.new
     expect(greeter.greet('Bob')).to eq('Hello Bob')
   end
+
+  it 'should return Hello Sue' do
+    greeter = Greeter.new
+    expect(greeter.greet('Sue')).to eq('Hello Sue')
+  end
 end
