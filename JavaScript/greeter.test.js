@@ -18,10 +18,36 @@
 // 5. `greet` returns `Good evening <name>` when the time is 18:00-22:00
 // 6. `greet` returns `Good night <name>` when the time is 22:00-06:00
 
-import greeter from './greeter';
+const greeter = require('./greeter');
 
 describe('greeter', () => {
-  it('should work', () => {
-    expect(greeter()).toEqual(true);
+  it('should return Hello Bob when given a name', () => {
+    expect(greeter("Bob")).toEqual("Hello Bob");
   })
+
+  it('should trim trailing spaces from the name', () => {
+    expect(greeter("Bob     ")).toEqual("Hello Bob");
+  })
+
+  it('should trim leading spaced from name', () => {
+    expect(greeter("      Bob")).toEqual('Hello Bob');
+  })
+
+  it('should capitalize the first character of the name', () => {
+    expect(greeter('bob')).toEqual('Hello Bob');
+  })
+
+  it('should return Good morning Bob when the time is between 6am and noon', () => {
+    const time = new Date();
+    time.setTime('11:00:00');
+
+    expect(greeter('Bob', time)).toEqual('Good morning Bob');
+  })
+
+  // it('should return Good evening when it is evening', () => {
+  //   const time = new Date();
+  //   time.setTime('20:00:00');
+
+  //   expect(greeter('Bob', time)).toEqual('Good evening Bob');
+  // })
 })
