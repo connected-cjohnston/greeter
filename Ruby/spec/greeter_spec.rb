@@ -19,19 +19,17 @@ require './app/greeter'
 # 6. `greet` returns `Good night <name>` when the time is 22:00-06:00
 
 RSpec.describe Greeter do
+  let(:greeter) { Greeter.new }
 
   it 'should return Hello Bob when passed Bob' do
-    greeter = Greeter.new
     expect(greeter.greet('Bob')).to eq('Hello Bob')
   end
 
   it 'should return Hello Sue' do
-    greeter = Greeter.new
     expect(greeter.greet('Sue')).to eq('Hello Sue')
   end
 
   it 'should trim the input' do
-    greeter = Greeter.new
     expect(greeter.greet('    Frodo    ')).to eq('Hello Frodo')
   end
 end
