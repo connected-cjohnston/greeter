@@ -1,17 +1,17 @@
 'use strict'
 
-function greeter(name, time) {
-  const formattedName = name.trim()[0].toUpperCase() + name.trim().slice(1);
-
-  const sixAM = new Date();
-  sixAM.setTime("06:00:00");
-  console.log(sixAM);
-
-  if (time && time >= sixAM) {
-    return "Good morning " + formattedName;
-  }
-
-  return "Hello " + formattedName;
+function salutation(hour) {
+  if (hour >= 6 && hour <= 11) return "Good morning ";
+  if (hour >= 18 && hour <= 21) return "Good evening ";
+  if (hour >= 22 || hour <= 5) return "Good night ";
+  return 'Hello ';
 }
 
-module.exports = greeter;
+module.exports = function greeter(name, time) {
+  const formattedName = name.trim()[0].toUpperCase() + name.trim().slice(1);
+  const defaultHour = 12;
+
+  const hour = time ? time.getHours() : defaultHour;
+
+  return salutation(hour) + formattedName;
+};

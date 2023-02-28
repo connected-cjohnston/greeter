@@ -38,16 +38,30 @@ describe('greeter', () => {
   })
 
   it('should return Good morning Bob when the time is between 6am and noon', () => {
-    const time = new Date();
-    time.setTime('11:00:00');
+    const date = new Date();
+    date.setHours(9)
 
-    expect(greeter('Bob', time)).toEqual('Good morning Bob');
+    expect(greeter('Bob', date)).toEqual('Good morning Bob');
   })
 
-  // it('should return Good evening when it is evening', () => {
-  //   const time = new Date();
-  //   time.setTime('20:00:00');
+  it('should return Good evening when it is evening', () => {
+    const date = new Date();
+    date.setHours(20)
 
-  //   expect(greeter('Bob', time)).toEqual('Good evening Bob');
-  // })
+    expect(greeter('Bob', date)).toEqual('Good evening Bob');
+  })
+
+  it('should return good night when between 10pm and midnight', () => {
+    const date = new Date();
+    date.setHours(23);
+
+    expect(greeter('Bob', date)).toEqual('Good night Bob');
+  })
+
+  it('should return good night when between midnight and 6am', () => {
+    const date = new Date();
+    date.setHours(4);
+
+    expect(greeter('Bob', date)).toEqual('Good night Bob');
+  })
 })
