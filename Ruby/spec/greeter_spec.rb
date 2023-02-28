@@ -52,4 +52,9 @@ RSpec.describe Greeter do
     time = Time.parse('11pm')
     expect(greeter.greet('Bilbo', time)).to eq('Good night Bilbo')
   end
+
+  it 'should return good night when between midnight and 6am' do
+    time = Time.parse('4am')
+    expect(greeter.greet('Gandalf', time)).to eq('Good night Gandalf')
+  end
 end
