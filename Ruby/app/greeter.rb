@@ -7,7 +7,7 @@ class Greeter
 
     if morning?(time)
       "Good morning #{formatted_name}"
-    elsif time >= Time.parse('6pm') && time <= Time.parse('10pm')
+    elsif evening?(time)
       "Good evening #{formatted_name}"
     elsif time >= Time.parse('10pm') || time <= Time.parse('6am')
       "Good night #{formatted_name}"
@@ -18,5 +18,9 @@ class Greeter
 
   def morning?(time)
     time >= Time.parse('6am') && time <= Time.parse('12pm')
+  end
+
+  def evening?(time)
+    time >= Time.parse('6pm') && time <= Time.parse('10pm')
   end
 end
