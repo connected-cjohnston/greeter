@@ -1,4 +1,5 @@
 require './app/greeter'
+require 'time'
 
 # Greeter
 
@@ -35,5 +36,15 @@ RSpec.describe Greeter do
 
   it 'should capitalize the first letter' do
     expect(greeter.greet('pippin')).to eq('Hello Pippin')
+  end
+
+  it 'should return Good morning when it is morning' do
+    time = Time.parse('8am')
+    expect(greeter.greet('Merry', time)).to eq('Good morning Merry')
+  end
+
+  it 'should return Good evening when it is evening' do
+    time = Time.parse('8pm')
+    expect(greeter.greet('Frodo', time)).to eq('Good evening Frodo')
   end
 end
