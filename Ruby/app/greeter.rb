@@ -5,12 +5,18 @@ class Greeter
 
     return "Hello #{formatted_name}" unless time
 
-    if time >= Time.parse('6am') && time <= Time.parse('12pm')
+    if morning?(time)
       "Good morning #{formatted_name}"
     elsif time >= Time.parse('6pm') && time <= Time.parse('10pm')
       "Good evening #{formatted_name}"
     elsif time >= Time.parse('10pm') || time <= Time.parse('6am')
       "Good night #{formatted_name}"
     end
+  end
+
+  private
+
+  def morning?(time)
+    time >= Time.parse('6am') && time <= Time.parse('12pm')
   end
 end
