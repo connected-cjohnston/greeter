@@ -32,4 +32,8 @@ RSpec.describe Greeter do
   it 'should trim the input' do
     expect(greeter.greet('    Frodo    ')).to eq('Hello Frodo')
   end
+
+  it 'should capitalize the first letter' do
+    expect(greeter.greet('pippin')).to eq('Hello Pippin')
+  end
 end
