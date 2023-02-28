@@ -9,6 +9,8 @@ class Greeter
       "Good morning #{formatted_name}"
     elsif time >= Time.parse('6pm') && time <= Time.parse('10pm')
       "Good evening #{formatted_name}"
+    elsif time >= Time.parse('10pm')
+      "Good night #{formatted_name}"
     end
   end
 end
