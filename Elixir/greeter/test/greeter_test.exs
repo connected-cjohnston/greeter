@@ -35,4 +35,24 @@ defmodule GreeterTest do
   test "should capitalize the first character" do
     assert Greeter.greet("pippin") == "Hello Pippin"
   end
+
+  test "should return Good morning when it is morning" do
+    time = ~T[08:00:00.00]
+    assert Greeter.greet("Sam", time) == "Good morning Sam"
+  end
+
+  test "should return Good evening when it is evening" do
+    time = ~T[20:00:00]
+    assert Greeter.greet("Gandalf", time) == "Good evening Gandalf"
+  end
+
+  test "should return Good night when between 10pm and midnight" do
+    time = ~T[23:00:00]
+    assert Greeter.greet("Elrond", time) == "Good night Elrond"
+  end
+
+  test "should return Good night when between midnight and 6am" do
+    time = ~T[04:00:00]
+    assert Greeter.greet("Arwen", time) == "Good night Arwen"
+  end
 end
